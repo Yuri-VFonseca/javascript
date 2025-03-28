@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; 
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333; 
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #45a049; 
+    transform: scale(1.05); 
+}
+
+#tarefasListadas {
+    margin-top: 20px;
+}
+
+.tarefa {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 18px;
+    padding: 5px 0;
+}
+
+.tarefa input[type="checkbox"] {
+    margin-right: 15px;
+    transform: scale(1.2);
+}
+
+.tarefa span {
+    max-width: 300px;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.tarefa.concluida span {
+    text-decoration: line-through;
+    color: #888; 
+}
