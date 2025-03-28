@@ -1,5 +1,6 @@
 
 const nameInput = document.getElementById("nameInput");
+
 const likes = JSON.parse(localStorage.getItem("likes")) || {
     rhcp: [],
     foof: [],
@@ -9,6 +10,7 @@ const likes = JSON.parse(localStorage.getItem("likes")) || {
     arcticmonkeys: [],
     gunsnroses: []
 };
+
 function updateLikeList(band) {
     const likeElement = document.getElementById(`likes-${band}`);
     const likedPeople = likes[band];
@@ -23,6 +25,13 @@ function updateLikeList(band) {
     }
     localStorage.setItem("likes", JSON.stringify(likes))
 }
+
+document.addEventListener("DOMContentLoaded", () => { 
+    for (let band in likes) { 
+        updateLikeList(band); 
+    }
+}); 
+
 document.querySelectorAll("button").forEach(button => {
     button.addEventListener("click", () => {
         if (button.id === "apagador") { 
