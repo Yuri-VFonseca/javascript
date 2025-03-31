@@ -78,3 +78,5 @@ button:hover {
     color: black;
     border: 2px solid black
 }
+
+/* Adicionar cor a borda do apagador, melhorar a centralização do botão em relação ao input, adicionar em js o localstorage e os recursos do botão apagador
