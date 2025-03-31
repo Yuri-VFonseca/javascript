@@ -1,20 +1,56 @@
-/* Altere a questão 2 do exercício anterior (Eventos) para armazenar no localStorage a lista de pessoas que clicaram no botão Curtir para que elas persistam ao recarregar a página.
+const taskInput = document.getElementById("descricaoTarefa");
 
-Você também deve incluir um botão "Limpar" que remove todos os nomes do localStorage.
+const tarefasListadas = document.getElementById("tarefasListadas");
 
------------------------------------------------------------------------------------------------------------------------------------------------
+const apagador = document.getElementById("apagador");
 
-Relembrando o enunciado
+let tarefas = JSON.parse(localStorage.getItem("tarefas")) || []; 
 
-Construa uma página HTML com um campo de texto, um botão "Curtir" e um parágrafo que exibe a lista de pessoas que clicaram no botão curtir. Toda vez que se preencher um nome no campo de texto e clicar em curtir, seu código Javascript deve armazenar o nome em um array (verifique se o nome já está lá) e alterar o parágrafo final da página de acordo com as regras:
+document.addEventListener("DOMContentLoaded", renderizarTarefas); 
 
-Lista vazia: "Ninguém curtiu"
+function adicionarTarefa() { 
+    const descricao = descricaoTarefa.value.trim(); 
+    if (descricao) { 
+        tarefas.push({descricao, status: false}); 
+        atualizarLocalStorage(); 
+        renderizarTarefas(); 
+        descricaoTarefa.value = ""; 
+    }
+}
 
-1 pessoa curtiu: "[Nome da pessoa] curtiu"
+function renderizarTarefas() { 
+    tarefasListadas.innerHTML = ""; 
+    tarefas.forEach((tarefa, index) => {
+        const div = document.createElement("div"); 
+        div.classList.add("tarefa"); 
+        if (tarefa.status) div.classList.add("concluida"); 
+        div.innerHTML = `
+        <input type="checkbox" ${tarefa.status ? "checked" : ""} onchange="alterarStatus(${index})"> 
+        <span>${tarefa.descricao}</span>
+        <button onclick="excluirTarefa(${index})" id="apagadorUnico">Excluir</button> 
+        `;
+        tarefasListadas.appendChild(div); 
+    });
+}
 
-2 pessoas curtiram: "[Pessoa 1] e [Pessoa 2] curtiram"
+function alterarStatus(index) {
+    tarefas[index].status = !tarefas[index].status; 
+    atualizarLocalStorage(); 
+    renderizarTarefas(); 
+}
 
-3 ou mais pessoas curtiram:
+function excluirTarefa(index) { 
+    tarefas.splice(index, 1); 
+    atualizarLocalStorage(); 
+    renderizarTarefas(); 
+}
 
-"[Pessoa 1], [Pessoa 2] e mais [tamanho da lista - 2] pessoas curtiram" */
+apagador.addEventListener("click", () => {
+    tarefas = []; 
+    atualizarLocalStorage(); 
+    renderizarTarefas(); 
+})
 
+function atualizarLocalStorage() { 
+    localStorage.setItem("tarefas", JSON.stringify(tarefas)); 
+}

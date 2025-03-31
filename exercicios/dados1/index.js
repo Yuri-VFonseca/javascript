@@ -1,4 +1,3 @@
-
 const nameInput = document.getElementById("nameInput");
 
 const likes = JSON.parse(localStorage.getItem("likes")) || {
