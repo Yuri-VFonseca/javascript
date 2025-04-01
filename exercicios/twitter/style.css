@@ -1,0 +1,92 @@
+html { 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: lightblue;
+    text-align: left;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+body { 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 { 
+    margin-top: 80px;
+}
+
+#post-form { 
+    position: fixed;
+    top: 150px;
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0px 4px 6 px rgba(0, 0, 0, 0.1);
+}
+
+textarea { 
+    width: 300px;
+    height: 50px;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    resize: none;
+}
+
+button { 
+    background-color: blue;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    width: 100px;
+    height: 48px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px; 
+}
+
+button:hover { 
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+#feed { 
+    margin-top: 100px;
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.post { 
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post img { 
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.like-buttom { 
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
